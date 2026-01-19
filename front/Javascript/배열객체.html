@@ -91,6 +91,14 @@
       console.log(modernJs); // [] 빈 배열
 
       // 7) slice()
+      // 특정 인덱스 범위의 요소를 꺼낸다. 원본에서 삭제가 발생하지 않음!!
+      // 첫번째 인수는 삭제할 인덱스
+      // 두번째 인수는 삭제할 인덱스 범위
+      let colors = ["red", "green", "blue", "white", "black"];
+      let sliced1 = colors.slice(2); // 2번 인덱스부터 끝까지
+      let sliced2 = colors.slice(2, 4); // 2번 인덱스부터 4번 인덱스 전까지
+      console.log(sliced1); // ['blue', 'white', 'black']
+      console.log(sliced2); // ['blue', 'white']
     </script>
   </body>
 </html>
