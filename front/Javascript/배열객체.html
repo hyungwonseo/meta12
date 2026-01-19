@@ -65,6 +65,32 @@
       console.log(adultNames); // ["민수", "영희"]
 
       // 5) indexOf()
+      const fruits = ["사과", "바나나", "딸기"];
+      const index = fruits.indexOf("바나나");
+      console.log(index); // 1
+
+      // 6) splice()
+      // 원하는 위치(인덱스)에 요소를 추가, 삭제한다
+      // 인수 : 함수 또는 메서드의 ()안에 들어가는 값
+      // 첫번째 인수는 삭제할 인덱스 넘버
+      // 두번째 인수는 삭제할 아이템 개수
+      // 세번째 인수는 추가할 아이템
+      let study = ["html", "css", "javascript", "jquery", "react", "nodejs"];
+      let js = study.splice(2); // 2번 인덱스부터 삭제, 두번째 인수가 없으면 끝까지 모두!
+      // study배열에서는 삭제가 발생하고 새로 만든 js에는 삭제한 데이터가 들어감
+      console.log(study); // ['html', 'css']
+      console.log(js); // ['javascript', 'jquery', 'react', 'nodejs']
+
+      let jquery = js.splice(1, 1); // 1번 인덱스부터 1개 삭제
+      console.log(js); // ['javascript', 'react', 'nodejs']
+      console.log(jquery); // ['jquery']
+
+      let modernJs = js.splice(1, 0, "typescript");
+      // 1번 인덱스부터 0개 삭제, typescript를 추가
+      console.log(js); // ['javascript', 'typescript', 'react', 'nodejs']
+      console.log(modernJs); // [] 빈 배열
+
+      // 7) slice()
     </script>
   </body>
 </html>
