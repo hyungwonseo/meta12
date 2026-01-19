@@ -44,7 +44,27 @@
       let dateToString = date.join("-");
       console.log(dateToString); // 2016-01-19
 
-      // 3)
+      // 3) filter()
+      // **중요!! 조건에 맞는 요소만 골라서 새로운 배열을 만든다.
+      const integers = [1, 2, 3, 4, 5, 6];
+      const evenNumbers = integers.filter((num) => num % 2 == 0); // 짝수만 골라담기
+      console.log(evenNumbers); // [2,4,6]
+
+      // 4) map()
+      // **중요!! 모든 요소를 변환해서 새로운 배열을 만든다.
+      const prices = [10000, 30000, 50000];
+      const discounts = prices.map((p) => p * 0.8); // 20% 할인
+      console.log(discounts); // [8000, 24000, 40000]
+
+      const users = [
+        { name: "철수", age: 18 },
+        { name: "민수", age: 25 },
+        { name: "영희", age: 22 },
+      ];
+      const adultNames = users.filter((u) => u.age >= 19).map((u) => u.name);
+      console.log(adultNames); // ["민수", "영희"]
+
+      // 5) indexOf()
     </script>
   </body>
 </html>
