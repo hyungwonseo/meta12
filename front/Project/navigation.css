@@ -110,15 +110,26 @@ li {
 }
 
 /* [반응형 - 모바일 (768px 이하)] */
+/* 미디어쿼리는 반드시 css의 제일 아래 부분에 작성해야 함 */
 @media screen and (max-width: 768px) {
   .navbar {
+    flex-direction: column;
+    align-items: flex-start; /* 왼쪽 정렬 */
+    padding: 16px 24px;
   }
 
   .navbar-menu {
+    display: none; /* 모바일사이즈에서 평소에는 안보임. 햄버거버튼 클릭하면 보여야 함. */
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+    gap: 0;
   }
 
   /* JS로 active 클래스가 붙으면 보이기 */
+  /* JS에서 햄버거 버튼을 클릭하면 .active가 생겼다가 사라졌다 함(=토글) */
   .navbar-menu.active {
+    display: flex;
   }
 
   .navbar-menu li {
@@ -131,6 +142,14 @@ li {
   }
 
   .dropdown-content {
+    /* 모바일에서는 호버가 안되므로 absolute로 지정했던 모든 스타일링을 기본으로 변경함 */
+    display: block;
+    position: static;
+    box-shadow: none;
+    background-color: #f9f9f9;
+    width: 100%;
+    transform: none;
+    padding: 0;
   }
 
   .dropdown-content li a {
@@ -141,6 +160,10 @@ li {
 
   /* 햄버거 버튼 보이기 & 위치 잡기 */
   .navbar-toggleBtn {
+    display: block;
+    position: absolute;
+    right: 24px;
+    top: 18px;
   }
 
   /* 모바일에서 로그인 버튼 숨김 */
