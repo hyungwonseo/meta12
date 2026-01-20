@@ -22,8 +22,17 @@
 
       let global = 10; // 글로벌 스코프 변수 (=전역변수)
       sum();
-      console.log(result); // 오류발생. 지역변수이므로 sum()함수의 종료시 함께 삭제됨
+      //console.log(result); // 오류발생. 지역변수이므로 sum()함수의 종료시 함께 삭제됨
       console.log(global); // 정상출력. 전역번수
+
+      // 매개변수, 인수, return
+      function addNumber(num1, num2) {
+        // num1과 num2는 매개변수
+        let sum = num1 + num2;
+        return sum; // 리턴
+      }
+      let value = addNumber(2, 3); // 2와3은 인수
+      console.log(value);
     </script>
   </body>
 </html>
