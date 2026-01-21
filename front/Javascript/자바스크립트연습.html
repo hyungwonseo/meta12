@@ -107,7 +107,7 @@
       </div>
 
       <div id="greeting" class="result-box">좋은 아침입니다</div>
-      <button onclick="changeGreeting()">다음 인사말</button>
+      <button onclick="changeGreeting2()">다음 인사말</button>
     </div>
 
     <!-- 연습 3 -->
@@ -154,6 +154,73 @@
       </button>
     </div>
 
-    <script></script>
+    <script>
+      function changeMessage() {
+        console.log("클릭 이벤트 발생!!!");
+        // 1단계. DOM으로부터 message id를 가진 태그요소를 변수에 저장
+        // const div = document.getElementById("message"); // 사용가능
+
+        // querySelector는 3가지 타입의 css 선택자를 모두 사용 가능 (div, .class, #id)
+        // querySelector는 단일 요소만 가져옴 (먼저 찾은 요소)
+        // querySelectorAll은 여러개의 태그 요소를 배열로 가져옴
+        const div = document.querySelector("#message");
+
+        // 2단계. 변수의 내용 속성에 "환영합니다"를 저장
+        // textContent는 텍스트만 입력
+        // innerHTML은 html 태그도 함께 입력 가능
+        div.textContent = "환영합니다";
+        // div.innerHTML = "<p>환영합니다!</p>";
+      }
+
+      function changeGreeting() {
+        // 1단계: id가 greeting인 태그 가져오기
+        const greeting = document.querySelector("#greeting");
+        // 2단계: greeting의 내용이 '좋은 아침입니다'면 '좋은 오후입니다'로 변경
+        // '좋은 오후입니다'면 '좋은 저녁입니다'로 변경
+        // '좋은 저녁입니다'면 '좋은 아침입니다'로 변경
+        if (greeting.textContent === "좋은 아침입니다") {
+          greeting.textContent = "좋은 오후입니다";
+        } else if (greeting.textContent === "좋은 오후입니다") {
+          greeting.textContent = "좋은 저녁입니다";
+        } else {
+          greeting.textContent = "좋은 아침입니다";
+        }
+      }
+
+      function changeGreeting2() {
+        // 1단계: id가 greeting인 태그 가져오기
+        const greeting = document.querySelector("#greeting");
+        // 2단계: 단계별 문자열을 배열로 저장
+        const greetings = [
+          "좋은 아침입니다",
+          "좋은 오후입니다",
+          "좋은 저녁입니다",
+        ];
+        // 3단계: 현재 인덱스 위치 조회
+        const currentIndex = greetings.indexOf(greeting.textContent);
+        // 4단계: 현재 인덱스 위치가 마지막이면 처음으로 이동. 아니면 다음 인덱스로 이동
+        if (currentIndex === greetings.length - 1) {
+          greeting.textContent = greetings[0];
+        } else {
+          greeting.textContent = greetings[currentIndex + 1];
+        }
+      }
+
+      function changeGreeting3() {
+        // 1단계: id가 greeting인 태그 가져오기
+        const greeting = document.querySelector("#greeting");
+        // 2단계: 단계별 문자열을 배열로 저장
+        const greetings = [
+          "좋은 아침입니다",
+          "좋은 오후입니다",
+          "좋은 저녁입니다",
+        ];
+        // 3단계: 현재 인덱스 위치 조회
+        const currentIndex = greetings.indexOf(greeting.textContent);
+        // 4단계: 현재 인덱스 위치가 마지막이면 처음으로 이동. 아니면 다음 인덱스로 이동
+        const index = (currentIndex + 1) % greetings.length;
+        greeting.textContent = greetings[index];
+      }
+    </script>
   </body>
 </html>
