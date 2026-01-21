@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM 연습 1: 텍스트 바꾸기</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+      .practice-box {
+        background: white;
+        padding: 30px;
+        margin: 20px 0;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      h2 {
+        color: #333;
+        border-bottom: 3px solid #4caf50;
+        padding-bottom: 10px;
+      }
+      h3 {
+        color: #666;
+        margin-top: 25px;
+      }
+      button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 5px;
+        transition: background-color 0.3s;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      button:active {
+        transform: scale(0.98);
+      }
+      #message {
+        font-size: 24px;
+        color: #333;
+        font-weight: bold;
+        margin: 20px 0;
+        padding: 15px;
+        background-color: #e8f5e9;
+        border-radius: 5px;
+      }
+      .result-box {
+        min-height: 50px;
+        padding: 15px;
+        margin: 15px 0;
+        border: 2px dashed #ddd;
+        border-radius: 5px;
+        font-size: 18px;
+      }
+      .instruction {
+        background-color: #fff3cd;
+        padding: 15px;
+        border-left: 4px solid #ffc107;
+        margin: 15px 0;
+        border-radius: 3px;
+      }
+      .success {
+        background-color: #d4edda;
+        color: #155724;
+        padding: 10px;
+        border-radius: 5px;
+        margin: 10px 0;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center; color: #4caf50">
+      🎯 DOM 조작 연습 - 텍스트 바꾸기
+    </h1>
+
+    <!-- 연습 1 -->
+    <div class="practice-box">
+      <h2>연습 1: 기본 텍스트 변경</h2>
+      <div class="instruction">
+        📝 <strong>목표:</strong> 버튼을 클릭하면 아래 메시지가 "환영합니다!"로
+        바뀌도록 만드세요.
+      </div>
+
+      <div id="message">안녕하세요</div>
+      <button onclick="changeMessage()">메시지 변경</button>
+      <div id="success1" class="success">✅ 성공! 잘하셨습니다!</div>
+    </div>
+
+    <!-- 연습 2 -->
+    <div class="practice-box">
+      <h2>연습 2: 여러 번 바꾸기</h2>
+      <div class="instruction">
+        📝 <strong>목표:</strong> 버튼을 클릭할 때마다 다른 메시지로 변경하세요.
+        <br />순서: "좋은 아침입니다" → "좋은 오후입니다" → "좋은 저녁입니다" →
+        (반복)
+      </div>
+
+      <div id="greeting" class="result-box">좋은 아침입니다</div>
+      <button onclick="changeGreeting()">다음 인사말</button>
+    </div>
+
+    <!-- 연습 3 -->
+    <div class="practice-box">
+      <h2>연습 3: 사용자 이름 입력</h2>
+      <div class="instruction">
+        📝 <strong>목표:</strong> 입력한 이름을 화면에 표시하세요.
+      </div>
+
+      <input
+        type="text"
+        id="nameInput"
+        placeholder="이름을 입력하세요"
+        style="
+          padding: 10px;
+          font-size: 16px;
+          border: 2px solid #ddd;
+          border-radius: 5px;
+          width: 200px;
+        "
+      />
+      <button onclick="showName()">이름 표시</button>
+      <div id="nameDisplay" class="result-box"></div>
+    </div>
+
+    <!-- 연습 4 -->
+    <div class="practice-box">
+      <h2>연습 4: 숫자 카운터</h2>
+      <div class="instruction">
+        📝 <strong>목표:</strong> 버튼을 클릭할 때마다 숫자가 1씩 증가하도록
+        만드세요.
+      </div>
+
+      <div
+        id="counter"
+        class="result-box"
+        style="font-size: 48px; text-align: center; color: #4caf50"
+      >
+        0
+      </div>
+      <button onclick="increaseCounter()">숫자 증가</button>
+      <button onclick="resetCounter()" style="background-color: #f44336">
+        초기화
+      </button>
+    </div>
+
+    <script></script>
+  </body>
+</html>
