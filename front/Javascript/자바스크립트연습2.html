@@ -249,6 +249,36 @@
           ? card.classList.remove("active")
           : card.classList.add("active");
       }
+
+      // 연습 4
+      function toggleTheme() {
+        const themeBox = document.querySelector("#themeBox");
+        if (themeBox.classList.contains("theme-light")) {
+          themeBox.classList.remove("theme-light"); // 두개의 클래스가 공존하면 안됨
+          themeBox.classList.add("theme-dark");
+        } else {
+          themeBox.classList.remove("theme-dark"); // 두개의 클래스가 공존하면 안됨
+          themeBox.classList.add("theme-light");
+        }
+      }
+
+      // 연습 5
+      function rotateBox() {
+        const animBox = document.querySelector("#animBox");
+        animBox.classList.toggle("rotate");
+      }
+      function enlargeBox() {
+        const animBox = document.querySelector("#animBox");
+        animBox.classList.toggle("big");
+      }
+      function changeBoxColor() {
+        const animBox = document.querySelector("#animBox");
+        animBox.classList.toggle("red");
+      }
+      function resetBox() {
+        const animBox = document.querySelector("#animBox");
+        animBox.classList.remove("rotate", "big", "red");
+      }
     </script>
   </body>
 </html>
