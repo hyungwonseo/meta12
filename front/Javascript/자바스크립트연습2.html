@@ -190,6 +190,65 @@
       </div>
     </div>
 
-    <script></script>
+    <script>
+      // 연습 1
+      // 자바스크립트로 style을 직접 변경할 수 있음( CSS없이!! )
+      function changeToRed() {
+        const colorBox = document.querySelector("#colorBox");
+        colorBox.style.backgroundColor = "red";
+      }
+      function changeToBlue() {
+        const colorBox = document.querySelector("#colorBox");
+        colorBox.style.backgroundColor = "blue";
+      }
+      function changeToGreen() {
+        const colorBox = document.querySelector("#colorBox");
+        colorBox.style.backgroundColor = "green";
+      }
+
+      // 연습 2
+      let currentSize = 18; // 기본크기
+      function makeBigger() {
+        const textBox = document.querySelector("#textBox");
+        currentSize += 4; // curentSize = currentSize + 4 의 단축형
+        textBox.style.fontSize = currentSize + "px"; // 뒤에 px을 붙여야함
+      }
+      function makeSmaller() {
+        const textBox = document.querySelector("#textBox");
+        // 실행코드를 하나의 조건문안에 넣으면 특정 조건을 만족해야만 실행이 되므로 안전 : "방어코드"
+        // if (currentSize > 10) {
+        //   currentSize -= 4;
+        //   textBox.style.fontSize = currentSize + "px";
+        // }
+
+        if (currentSize <= 10) {
+          // 위 코드와 완전히 동일한 효과
+          return; // return의 의미는 함수를 탈출하라는 뜻. 실제로 많이 쓰이는 방어코드의 형태
+        }
+        currentSize -= 4;
+        textBox.style.fontSize = currentSize + "px";
+      }
+      function resetSize() {
+        const textBox = document.querySelector("#textBox");
+        textBox.style.fontSize = "18px";
+      }
+
+      // 연습 3
+      function toggleCard(cardId) {
+        // 특정한 HTML요소가 정해지지 않았고 매개변수로 전달되기 때문에 매개변수를 사용해야함
+        const card = document.querySelector(`#${cardId}`); // 백틱문법이 가장 유용함
+        // const card2 = document.getElementById(cardId); // 백틱문법 필요없음
+        card.classList.toggle("active");
+        // active의 개념은 고정된 것이 아니라 CSS 스타일링을 미리 해놓고
+        // 자바스크립트가 선택적으로 active 클래스를 적용하고 삭제하는 방식
+        // active라는 이름은 자유롭게 바꿀 수 있음
+      }
+      function toggleCard2(cardId) {
+        const card = document.querySelector(`#${cardId}`);
+        card.classList.contains("active") // contains 찾아야할 클래스이름의 포함여부를 알려줌
+          ? card.classList.remove("active")
+          : card.classList.add("active");
+      }
+    </script>
   </body>
 </html>
