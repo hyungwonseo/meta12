@@ -281,6 +281,8 @@
 
       // 3. 폼 제출 처리
       function handleContactSubmit(event) {
+        // preventDefault는 각 HTML요소가 가지고 있는 고유의 행동을 막고자하는 것
+        // 예) <a>는 페이지 이동, <form>은 페이지 갱신 등등
         event.preventDefault(); // 새로고침 방지
 
         // 입력값 가져오기
