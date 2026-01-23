@@ -113,6 +113,30 @@
       <button class="next-btn">&#10095;</button>
       <div class="dots-container"></div>
     </div>
-    <script></script>
+    <script>
+      let currentIndex = 0;
+      // querySelectorAll은 slide 클래스 모두를 배열로 저장
+      const slides = document.querySelectorAll(".slide");
+      const sliderWrapper = document.querySelector(".slider-wrapper");
+
+      // 이전(왼쪽) 슬라이드로 이동. 목적은 보여줘야할 슬라이드의 index를 찾는것
+      function prevSlide() {
+        if (currentIndex == 0) {
+          currentIndex = slides.length - 1;
+        } else {
+          currentIndex--;
+        }
+        sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }
+      // 다음(오른쪽) 슬라이드로 이동. 목적은 보여줘야할 슬라이드의 index를 찾는것
+      function nextSlide() {
+        if (currentIndex == slides.length - 1) {
+          currentIndex = 0;
+        } else {
+          currentIndex++;
+        }
+        sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }
+    </script>
   </body>
 </html>
