@@ -115,6 +115,7 @@
     </div>
     <script>
       let currentIndex = 0;
+      let slideInterval;
       // querySelectorAll은 slide 클래스 모두를 배열로 저장
       const slides = document.querySelectorAll(".slide");
       const sliderWrapper = document.querySelector(".slider-wrapper");
@@ -161,13 +162,29 @@
         });
       }
 
+      // 9. 자동 재생 시작 (3초마다 nextSlide 실행)
+      function startAutoSlide() {
+        slideInterval = setInterval(nextSlide, 3000);
+      }
+
+      // 10. 자동 재생 멈춤
+      function stopAutoSlide() {
+        clearInterval(slideInterval);
+      }
+
       // 버튼 클릭 이벤트 등록
       const nextBtn = document.querySelector(".next-btn");
       const prevBtn = document.querySelector(".prev-btn");
       nextBtn.addEventListener("click", nextSlide); // 함수의 이름만 사용
       prevBtn.addEventListener("click", prevSlide); // 함수의 이름만 사용
 
+      // 마우스 호버 시 자동 재생 멈춤/재개 기능
+      const sliderContainer = document.querySelector(".slider-container");
+      sliderContainer.addEventListener("mouseenter", stopAutoSlide); // 마우스 올리면 멈춤
+      sliderContainer.addEventListener("mouseleave", startAutoSlide); // 마우스 떼면 다시 시작
+
       createDots();
+      startAutoSlide();
     </script>
   </body>
 </html>
