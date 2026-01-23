@@ -146,6 +146,7 @@
           dot.onclick = function () {
             currentIndex = index;
             sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+            updateDots();
           };
           dotsContainer.appendChild(dot);
         });
