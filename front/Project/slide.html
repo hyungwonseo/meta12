@@ -118,6 +118,7 @@
       // querySelectorAll은 slide 클래스 모두를 배열로 저장
       const slides = document.querySelectorAll(".slide");
       const sliderWrapper = document.querySelector(".slider-wrapper");
+      const dotsContainer = document.querySelector(".dots-container");
 
       // 이전(왼쪽) 슬라이드로 이동. 목적은 보여줘야할 슬라이드의 index를 찾는것
       function prevSlide() {
@@ -137,6 +138,35 @@
         }
         sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
       }
+
+      function createDots() {
+        slides.forEach((slide, index) => {
+          const dot = document.createElement("div");
+          dot.classList.add("dot");
+          dot.onclick = function () {
+            currentIndex = index;
+            sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+          };
+          dotsContainer.appendChild(dot);
+        });
+      }
+
+      function updateDots() {
+        const dots = document.querySelectorAll(".dot");
+        dots.forEach((dot, index) => {
+          index === currentIndex
+            ? dot.classList.add("active")
+            : dot.classList.remove("active");
+        });
+      }
+
+      // 버튼 클릭 이벤트 등록
+      const nextBtn = document.querySelector(".next-btn");
+      const prevBtn = document.querySelector(".prev-btn");
+      nextBtn.addEventListener("click", nextSlide); // 함수의 이름만 사용
+      prevBtn.addEventListener("click", prevSlide); // 함수의 이름만 사용
+
+      createDots();
     </script>
   </body>
 </html>
