@@ -170,6 +170,23 @@
       </div>
     </div>
 
-    <script></script>
+    <script>
+      const overlay = document.querySelector("#modalOverlay");
+
+      function openModal() {
+        overlay.classList.add("active");
+      }
+      function closeModal() {
+        overlay.classList.remove("active");
+      }
+      // 모달창 뒤에 오버레이부분을 클릭했을때 창 닫기
+      function closeModalOnOverlay(event) {
+        console.log(event.target);
+        console.log(event.currentTarget);
+        if (event.target === overlay) {
+          overlay.classList.remove("active");
+        }
+      }
+    </script>
   </body>
 </html>
